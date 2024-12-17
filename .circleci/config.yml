@@ -47,35 +47,35 @@ jobs:
           paths:
             - release/*    
 
-  build_x86:
-    machine: true
+  # build_x86:
+    # machine: true
 
-    working_directory: ~/UserLAnd-Assets-Ubuntu
+    # working_directory: ~/UserLAnd-Assets-Ubuntu
 
-    steps:
-      - checkout
-      - run:
-          name: build x86 assets
-          command: ./buildArch.sh x86
-      - persist_to_workspace:
-          root: .
-          paths:
-            - release/*    
+    # steps:
+      # - checkout
+      # - run:
+          # name: build x86 assets
+          # command: ./buildArch.sh x86
+      # - persist_to_workspace:
+          # root: .
+          # paths:
+            # - release/*    
 
-  build_x86_64:
-    machine: true
+  # build_x86_64:
+    # machine: true
 
-    working_directory: ~/UserLAnd-Assets-Ubuntu
+    # working_directory: ~/UserLAnd-Assets-Ubuntu
 
-    steps:
-      - checkout
-      - run:
-          name: build x86_64 assets
-          command: ./buildArch.sh x86_64
-      - persist_to_workspace:
-          root: .
-          paths:
-            - release/*    
+    # steps:
+      # - checkout
+      # - run:
+          # name: build x86_64 assets
+          # command: ./buildArch.sh x86_64
+      # - persist_to_workspace:
+          # root: .
+          # paths:
+            # - release/*    
 
   publish-github-release:
     docker:
@@ -104,20 +104,20 @@ workflows:
           filters:
             tags:
               only: /.*/
-      - build_x86:
-          filters:
-            tags:
-              only: /.*/
-      - build_x86_64:
-          filters:
-            tags:
-              only: /.*/
+      # - build_x86:
+          # filters:
+            # tags:
+              # only: /.*/
+      # - build_x86_64:
+          # filters:
+            # tags:
+              # only: /.*/
       - publish-github-release:
           requires:
             - build_arm
             - build_arm64
-            - build_x86
-            - build_x86_64
+            # - build_x86
+            # - build_x86_64
           filters:
             branches:
               ignore: /.*/
