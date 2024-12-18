@@ -86,6 +86,11 @@ jobs:
           at: .
 
       - run:
+          name: "Update golang dependency"
+          command: |
+            go install golang.org/dl/go1.23.1@latest
+
+      - run:
           name: "Publish Release on GitHub"
           command: |
             go install github.com/tcnksm/ghr@latest
