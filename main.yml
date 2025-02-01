@@ -7,7 +7,7 @@ services:
        dockerfile: Dockerfile
        args:
          IMAGE_DISTRO: ubuntu
-         IMAGE_VERSION: xenial
+         IMAGE_VERSION: noble
      volumes:
        - ./output:/output
        - ./input:/input
